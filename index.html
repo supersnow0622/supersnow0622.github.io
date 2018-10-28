@@ -1,160 +1,401 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
 
-<div class="page clearfix" index>
-    <div class="left">
-        <h1>Welcome to xudailong's blog </h1>
-        <small>这里是我的个人IT学习小天地</small>
-        <hr>
-        <ul>
-            {% for post in paginator.posts %}
-              <li>
-                <h2>
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>{{ post.date | date: "%F" }}
-                    </div>
-                    <div class="label-card">
-                        {% if post.author %}<i class="fa fa-user"></i>{{ post.author }}
-                        {% endif %}
-                    </div>
-                    <div class="label-card">
-                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
-                    </div>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>京北优聘</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	﻿<script>
+$(function(){
+	//导航
+	$('#sjTab1').addClass('cur-tab');
+	
+	//轮播图片
+		var slideDiv = $('<div class="carousel-inner" ></div>');
+	var slideIndicator = $('<ol class="carousel-indicators"></ol');
+			var item1 = $('<div class="item active" id="banner1">'+
+							'<img src="img/banner1.jpg" alt="First slide">'+
+						'</div>');
+		slideDiv.append(item1);
+		var indicator1 = $('<li data-target="#myCarousel" data-slide-to="0" class="active"></li>');
+		slideIndicator.append(indicator1);
+						var item2 = $('<div class="item" id="banner2">'+
+							'<img src="img/banner2.jpg" alt="Second slide">'+
+						'</div>');
+		slideDiv.append(item2);
+		var indicator2 = $('<li data-target="#myCarousel" data-slide-to="1" ></li>');
+		slideIndicator.append(indicator2);
+		
+		$('#myCarousel').append(slideIndicator);	
+	$('#myCarousel').append(slideDiv);
+	
+	//不同设备上的图片设置
+	var screenHeight = window.screen.height;
+	if(screenHeight > 800){
+		
+		$('#index_navbar img').attr('src','img/logo.jpg');	
 
-                    <div class="label-card">
-                    {% include category.html %}
-                    </div>
+		//轮播图片适配	
+		$('#banner1 img').attr('src','img/banner1.jpg');
+		$('#banner2 img').attr('src','img/banner2.jpg');
+		//产品图片适配	
+		$('#productImg1 img').attr('src','img/product1.jpg');
+		$('#productImg2 img').attr('src','img/product2.jpg');
+		$('#productImg3 img').attr('src','img/product3.jpg');
+	}else{
 
-                    <div class="label-card">
-                    {% include tag.html %}
-                    </div>
-                </div>
-                <div class="excerpt">
-                    {{post.excerpt}}
-                </div>
-                <div class="read-all">
-                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            {% endfor %}
-        </ul>
+		$('#index_navbar img').attr('src','img/logo.jpg');
+		$('#floatImg').hide();	
+
+		//轮播图片适配
+		$('#banner1 img').attr('src','img/banner1.jpg');
+		$('#banner2 img').attr('src','img/banner2.jpg');
+		//产品图片适配
+		$('#productImg1 img').attr('src','img/product1.jpg');
+		$('#productImg2 img').attr('src','img/product2.jpg');
+		$('#productImg3 img').attr('src','img/product3.jpg');
+	}
+	
+	//链接到产品页面
+	$('#banner1 img').mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("about.html");
+	});
+	
+	$("#banner2 img").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("about.html");
+	});
+	
+	$("#productTitle1").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/lianjia.html");
+	});
+	
+	$("#productImg1").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/lianjia.html");
+	});
+	
+	$("#productTitle2").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/shunfeng.html");
+	});
+	
+	$("#productImg2").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/shunfeng.html");
+	});
+	
+	$("#productTitle3").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/yindun.html");
+	});
+	
+	$("#productImg3").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/yindun.html");
+	});
+	
+	$("#productTitle4").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/caihong.html");
+	});
+	
+	$("#productImg4").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/caihong.html");
+	});
+	
+	$("#productTitle5").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/weishikang.html");
+	});
+	
+	$("#productImg5").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/weishikang.html");
+	});
+	
+	$("#productTitle6").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/huaan.html");
+	});
+	
+	$("#productImg6").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/huaan.html");
+	});
+	
+	$("#productTitle7").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/meituan.html");
+	});
+	
+	$("#productImg7").mouseover(function(){
+		$(this).css("cursor","pointer");
+	}).mouseup(function(){
+		$(this).css("cursor","default");
+	}).mousedown(function(){
+		window.open("recruitinfo/meituan.html");
+	});
+	
 
 
+});
+</script>	
+<link rel="stylesheet" href="css/style.css">
+	
+</head>
+<body>
 
-        <!-- Pagination links -->
-        <div class="pagination">
-          {% if paginator.previous_page %}
-            <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
-            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous"><i class="fa fa-angle-left"></i></a>
-          {% else %}
-            <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
-            <span class="previous disable"><i class="fa fa-angle-left"></i></span>
-          {% endif %}
-          <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
-          {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path }}" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}" class="next"><i class="fa fa-angle-double-right"></i></a>
-          {% else %}
-            <span class="next disable"><i class="fa fa-angle-right"></i></span>
-            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
-          {% endif %}
-        </div>
-    </div>
-    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
-    <div class="right">
-        <div class="wrap">
-            <div class="side">
-                <div>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    Recent Posts
-                </div>
-                <ul class="content-ul" recent>
-                    {% for post in site.posts offset: 0 limit: 10  %}
-                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
+<!-- 响应式导航栏 -->
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header" id="index_navbar">
+			<a href="#" class="navbar-brand" style="padding:0;"><img  id="logoTitle"></img></a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>		
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse" >
+			<ul id="menu-%e9%a6%96%e9%a1%b5%e9%a1%b6%e9%83%a8%e5%af%bc%e8%88%aa%e8%8f%9c%e5%8d%95" class="nav navbar-nav navbar-right">
+				<li id="menu-item-253" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-253 active">
+					<a title="首页" href="index.html">首页</a>
+				</li>
+				<li id="menu-item-254" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-254 dropdown">
+					<a title="发布" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">发布</a>
+					<ul role="menu" class=" dropdown-menu">
+						<li id="menu-item-261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-261"><a title="招聘" target="_blank" href="recruit.html">招聘</a></li>
+						<li id="menu-item-316" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-316"><a title="求职" target="_blank" href="jobhunt.html">求职</a></li>
+						<li id="menu-item-255" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-255"><a title="信息推广" target="_blank" href="promotion.html">信息推广</a></li>
+					</ul>
+				</li>
+				<li id="menu-item-257" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-257 dropdown">
+					<a title="商务合作" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">商务合作 </a>
+					<ul role="menu" class=" dropdown-menu">
+						<li id="menu-item-321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-321"><a title="霓歌（企业微信）" target="_blank" href="entrustrecruit.html">委托招聘</a></li>
+						<li id="menu-item-323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-323"><a title="神计电子税务咨询" target="_blank" href="microhunt.html">微猎</a></li>
+						<li id="menu-item-322" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-322"><a title="霓歌在线客服中心" target="_blank" href="microhire.html">人人微聘</a></li>
+					</ul>
+				</li>
+				<li id="menu-item-280" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-280">
+					<a title="公司简介" href="about.html">公司简介</a>
+				</li>
+			</ul>		
+		</div>	
+	</div>
+</nav>
 
-            <!-- Content -->
-            <div class="side ">
-                <div>
-                    <i class="fa fa-th-list"></i>
-                    Categories
-                </div>
-                <ul class="content-ul" cate>
-                    {% for category in site.categories %}
-                    <li>
-                        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
-                            <span class="name">
-                                {{ category | first }}
-                            </span>
-                            <span class="badge">{{ category | last | size }}</span>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- 其他div框放到这里 -->
-            <div class="side">
-                <div>
-                    <i class="fa fa-tags"></i>
-                    Tags
-                </div>
-                <div class="tags-cloud">
-                    {% assign first = site.tags.first %}
-                    {% assign max = first[1].size %}
-                    {% assign min = max %}
-                    {% for tag in site.tags offset:1 %}
-                      {% if tag[1].size > max %}
-                        {% assign max = tag[1].size %}
-                      {% elsif tag[1].size < min %}
-                        {% assign min = tag[1].size %}
-                      {% endif %}
-                    {% endfor %}
+<!-- 轮播（Carousel） -->
+<div data-ride="carousel" id="myCarousel" class="carousel slide">
+	
+</div> 
 
-                    {% if max == min %}
-                        {% assign diff = 1 %}
-                    {% else %}
-                        {% assign diff = max | minus: min %}
-                    {% endif %}
-
-                    {% for tag in site.tags %}
-                      {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
-                      {% assign base = temp | divided_by: 4 %}
-                      {% assign remain = temp | modulo: 4 %}
-                      {% if remain == 0 %}
-                        {% assign size = base | plus: 9 %}
-                      {% elsif remain == 1 or remain == 2 %}
-                        {% assign size = base | plus: 9 | append: '.5' %}
-                      {% else %}
-                        {% assign size = base | plus: 10 %}
-                      {% endif %}
-                      {% if remain == 0 or remain == 1 %}
-                        {% assign color = 9 | minus: base %}
-                      {% else %}
-                        {% assign color = 8 | minus: base %}
-                      {% endif %}
-                      <a href="{{ root_url }}/{{ site.tag_dir }}#{{ tag[0] }}" style="font-size: {{ size }}pt; color: #{{ color }}{{ color }}{{ color }};">{{ tag[0] }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- <div class="side">
-                <div>
-                    <i class="fa fa-external-link"></i>
-                    Links
-                </div>
-                <ul  class="content-ul">
-
-                </ul>
-            </div> -->
-        </div>
-    </div>
+﻿<!-- 栅格布局 -->
+<div class="product">
+	<div class="container" >
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle1">链家房地产</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg1">
+				<img src="img/product1.jpg">
+			</div>
+				<div class="col-sm-6 col-md-6 productDesc">
+					<p>房地产经纪龙头企业、行业最高提点、行业最好服务、行业最好发展空间</p>
+					<p>销售精英，有无经验均可，只要你喜欢</p>
+					<p>时间是选休的，收入是不封顶的</p>
+					<p>培训是免费的，旅游是奖励的</p>
+					<p>晋升是不靠关系的，心情是倍儿爽的</p>
+					<p>公司是最有潜力的公司，产品是全方位综合房地产商</p>				
+				</div>
+			</div>
+	</div>
 </div>
-<!-- <script src="{{ "/js/scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
-<!-- <script src="{{ "/js/pageContent.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
+
+<div class="product">
+	<div class="container" >
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle2">顺丰速运</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg2">
+				<img src="img/product2.jpg">
+			</div>
+			<div class="col-sm-6 col-md-6 productDesc">
+				<p>主要经营国际、国内快递业务的港资快递企业</p>
+				<p>要求安全、快速、准确地完成日常收派件工作</p>
+				<p>保证客户快件不受损失，确保公司利益不受侵害</p>
+				<p>做好客户快件的运输及包装工作，维护公司良好的客户声誉</p>
+				<p>及时回收散单货款和及时回收月结款项，并在规定时间内如数上缴财务入帐</p>	
+				<p>学习、推广新业务、项目操作流程，并进行宣传、推广</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="product">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle3">银盾保安</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg3">
+				<img src="img/product3.jpg">
+			</div>
+			<div class="col-sm-6 col-md-6 productDesc">
+				<p>门卫、巡逻、守护、安全检查、安全技术防范</p>
+				<p>负责北京大型活动现场安保及安检 ，包括鸟巢 ，国家会议中心 ，工体等国企单位举行的明星演唱会  球赛 ，展览会，体育赛事</p>
+				<p>负责公交车上的安全检查 。</p>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="product">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle4">京城彩虹文化</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg4">
+				<img src="img/product4.jpg">
+				<img src="img/product4-1.jpg">
+			</div>
+			<div class="col-sm-6 col-md-6 productDesc">
+				<p>各大直播平台网络主播</p>
+				<p>活泼、开朗、品行佳、上进心强</p>
+				<p>有强烈的职业意愿，无不良习气，吃苦耐劳，可塑性强</p>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="product">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle5">卫视康有害生物防治</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg5">
+				<img src="img/wsk.png">
+			</div>
+			<div class="col-sm-6 col-md-6 productDesc">
+				<p>专业从事灭蟑螂、灭老鼠、灭蚊蝇、灭蚊蝇</p>
+				<p>涉及政府项目、宾馆、饭店、工厂、食品生产、学校、超市、商场、公园、高尔夫球场、度假村、医院、个人家庭、居民社区、车站机场等各行各业</p>
+				<p>平行端正，敢于吃苦，工作简单</p>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="product">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle6">北京华安保安服务</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg6">
+				<img src="img/huaan.jpg">
+			</div>
+			<div class="col-sm-6 col-md-6 productDesc">
+				<p>主要负责小区安保工作和特勤岗位。</p>
+				<p>管理人员全部是部队转业干部、退伍军人或大学本科、专科以上学历人员</p>
+				<p>北京市首批通过审批的保安服务公司之一</p>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="product">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-12 productTitle" id="productTitle7">美团外卖</div>
+		</div>
+		<div class="row" >
+			<div class="col-sm-6 col-md-6 productImg" id="productImg7">
+				<img src="img/meituan.png">
+			</div>
+			<div class="col-sm-6 col-md-6 productDesc">
+				<p>主要负责小区安保工作和特勤岗位。</p>
+				<p>管理人员全部是部队转业干部、退伍军人或大学本科、专科以上学历人员</p>
+				<p>北京市首批通过审批的保安服务公司之一</p>				
+			</div>
+		</div>
+	</div>
+</div>
+
+﻿<div class="foot">
+	<div class="container">
+		<div class="row pc">
+			<div class="col-xs-6 col-md-6">
+				<div id="company">
+					<p id="companyName">京北人力资源有限公司</p>
+					<p class="companyInfo">地址：北京市昌平区东三旗路与立汤路交叉口东150米（京北）</p>
+					<p class="companyInfo">电话：15117971769  15011170506</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-6">
+				<div id="erweiCode">
+					<p>扫一扫关注我们</p>
+					<img src="http://www.shenjisoft.com/wordpress/wp-content/themes/ShenjInfo/img/erweicode.png" style="width:125px;height:125px;"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
