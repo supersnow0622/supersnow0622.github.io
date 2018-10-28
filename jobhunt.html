@@ -1,0 +1,197 @@
+<html>
+
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>京北优聘</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/login.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="js/login.js"></script>
+	﻿<script>
+$(function(){
+	//导航
+	$('#sjTab1').addClass('cur-tab');
+	
+	//轮播图片
+		var slideDiv = $('<div class="carousel-inner" ></div>');
+	var slideIndicator = $('<ol class="carousel-indicators"></ol');
+			var item1 = $('<div class="item active" id="banner1">'+
+							'<img src="img/banner1.jpg" alt="First slide">'+
+						'</div>');
+		slideDiv.append(item1);
+		var indicator1 = $('<li data-target="#myCarousel" data-slide-to="0" class="active"></li>');
+		slideIndicator.append(indicator1);
+						var item2 = $('<div class="item" id="banner2">'+
+							'<img src="img/banner2.jpg" alt="Second slide">'+
+						'</div>');
+		slideDiv.append(item2);
+		var indicator2 = $('<li data-target="#myCarousel" data-slide-to="1" ></li>');
+		slideIndicator.append(indicator2);
+		
+		$('#myCarousel').append(slideIndicator);	
+	$('#myCarousel').append(slideDiv);
+	
+	//不同设备上的图片设置
+	var screenHeight = window.screen.height;
+	if(screenHeight > 800){
+		
+		$('#index_navbar img').attr('src','img/logo.jpg');	
+
+		//轮播图片适配	
+		$('#banner1 img').attr('src','img/banner1.jpg');
+		$('#banner2 img').attr('src','img/banner2.jpg');
+	}else{
+
+		$('#index_navbar img').attr('src','img/logo.jpg');
+		$('#floatImg').hide();	
+
+		//轮播图片适配
+		$('#banner1 img').attr('src','img/banner1.jpg');
+		$('#banner2 img').attr('src','img/banner2.jpg');
+	}
+	
+	function SaveInfoToFile(folder, fileName) {
+		var filePath = folder + fileName;
+		var fileInfo = "hahahaha";
+		var fso = new ActiveXObject("Scripting.FileSystemObject");
+		var file = fso.CreateTextFile(filePath, true);
+		file.Write(fileInfo);
+		file.Close();
+	}
+	//点击按钮
+	$('#login').click(function() {
+		var data="要保存的文本";
+		alert(data);
+		SaveInfoToFile("data/", "data");
+	});
+	
+});
+</script>	
+<link rel="stylesheet" href="css/style.css">
+	
+</head>
+<body>
+
+<!-- 响应式导航栏 -->
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header" id="index_navbar">
+			<a href="#" class="navbar-brand" style="padding:0;"><img  id="logoTitle"></img></a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>		
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse" >
+			<ul id="menu-%e9%a6%96%e9%a1%b5%e9%a1%b6%e9%83%a8%e5%af%bc%e8%88%aa%e8%8f%9c%e5%8d%95" class="nav navbar-nav navbar-right">
+				<li id="menu-item-253" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-253">
+					<a title="首页" href="index.html">首页</a>
+				</li>
+				<li id="menu-item-254" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-254 dropdown active">
+					<a title="发布" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">发布</a>
+					<ul role="menu" class=" dropdown-menu">
+						<li id="menu-item-261" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-261"><a title="招聘" target="_blank" href="recruit.html">招聘</a></li>
+						<li id="menu-item-316" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-316"><a title="求职" target="_blank" href="jobhunt.html">求职</a></li>
+						<li id="menu-item-255" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-255"><a title="信息推广" target="_blank" href="promotion.html">信息推广</a></li>
+					</ul>
+				</li>
+				<li id="menu-item-257" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-257 dropdown">
+					<a title="云服务" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">商务合作 </a>
+					<ul role="menu" class=" dropdown-menu">
+						<li id="menu-item-321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-321"><a title="霓歌（企业微信）" target="_blank" href="entrustrecruit.html">委托招聘</a></li>
+						<li id="menu-item-323" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-323"><a title="神计电子税务咨询" target="_blank" href="microhunt.html">微猎</a></li>
+						<li id="menu-item-322" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-322"><a title="霓歌在线客服中心" target="_blank" href="microhire.html">人人微聘</a></li>
+					</ul>
+				</li>
+				<li id="menu-item-280" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-280">
+					<a title="公司简介" href="about.html">公司简介</a>
+				</li>
+			</ul>		
+		</div>	
+	</div>
+</nav>
+
+<div class="login" style="margin-top:50px;">
+    	
+	<h1>求  职</h1>
+	<p class="title-tips">登记简历 专人专项 HR在线沟通 10分子内帮您匹配</P>
+	<div class="web_qr_login" id="web_qr_login" style="display: block;">
+		<div class="web_login" id="web_login">
+			<div class="login-box">
+				<div class="login_form">
+					<form action="" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="u">姓名：</label>
+							<div class="inputOuter" id="uArea">                 
+								<input type="text" id="name" name="name" class="inputstyle"/>
+							</div>
+						</div>
+						
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="p">性别：</label> 
+							<div class="inputOuter" id="pArea">                    
+								<input type="radio" name="gender"  checked="checked" /><label style="font-size:14px;">男&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+								<input type="radio" name="gender" /><label style="font-size:14px;">女</label> 
+							</div>
+						</div>	     
+						
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="p">年龄：</label> 
+							<div class="inputOuter" id="pArea">                    
+								<input type="text" id="age" name="age" class="inputstyle"/>
+							</div>
+						</div>
+						
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="u">期望职位：</label>
+							<div class="inputOuter" id="uArea">                 
+								<input type="text" id="expectposition" name="expectposition" class="inputstyle"/>							
+							</div>							
+						</div>	
+						
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="u">工作地点：</label>
+							<div class="inputOuter" id="uArea">                 
+								<input type="text" id="expectaddress" name="expectaddress" class="inputstyle"/>
+							</div>
+						</div>
+						
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="u">学历信息：</label>
+							<div class="inputOuter" id="uArea">                 
+								<input type="text" id="education" name="education" class="inputstyle"/>
+							</div>
+						</div>
+						
+						<div class="uinArea" id="uinArea">
+							<label class="input-tips" for="u">手机号码：</label>
+							<div class="inputOuter" id="uArea">                 
+								<input type="text" id="mobilenum" name="mobilenum" class="inputstyle"/>
+							</div>
+						</div>
+						
+						<div class="uinArea" id="uinArea" style="height:140px">
+							<label class="input-tips" for="u" style="width:200px;">其他介绍：</label>
+							<div class="inputOuter" id="uArea">                 
+								<textarea id="others" name="others" class="inputstyle" style="width:300px;height:80px;margin-top:-15px;">
+								</textarea>
+							</div>
+						</div>	
+					
+						<div style="padding-left:50px;margin-top:20px;">
+							<button type="submit" value="提交" style="width:150px;" class="button_blue">提交</button>    						
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+</body>
+</html>
